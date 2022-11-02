@@ -25,8 +25,10 @@ while True:
     
     print("8 Displays the individual marks ")
     
+    print("9 Display subject wise mark")
+    
 
-    print("9 exit")
+    print("10 exit")
 
    
 
@@ -167,6 +169,32 @@ while True:
         mycursor.execute(sql)
 
         result = mycursor.fetchall()
+
+        for i in result:
+
+            print(i)
+            
+    elif(choice==9):
+
+         
+
+        subname= input("Enter the subject : ")
+
+        if(subname=='physics'):
+
+            sql = "SELECT `physicsmark` FROM `marks` "
+
+        if(subname=='chemistry'):
+
+            sql = "SELECT  `chemistrymark` FROM `marks`"
+
+        if(subname=='maths'):
+
+            sql = "SELECT `mathsmark` FROM `marks` "
+
+        mycursor.execute(sql)
+
+        result=mycursor.fetchall()
 
         for i in result:
 
