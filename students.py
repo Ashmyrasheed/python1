@@ -1,4 +1,5 @@
 
+from select import select
 import mysql.connector
 
 mydb = mysql.connector.connect(host = 'localhost' , user = 'root' , password = '' , database = 'studentdb')
@@ -54,7 +55,11 @@ while True:
     elif(choice==3):
 
         print('search student')
-
+        admo = input('enter the adminnumber')
+        sql = 'SELECT `id`,`name`,`rollnumber`,`admno`,`college` FROM `students` WHERE `admno` = '+admo
+        mycursor.execute(sql)
+        result = mycursor.fetchall()
+        print(result)
     elif(choice==4):
 
         print('update student')
