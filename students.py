@@ -27,8 +27,10 @@ while True:
     
     print("9 Display subject wise mark")
     
+    print("10 Display subject wise average mark")
+    
 
-    print("10 exit")
+    print("11 exit")
 
    
 
@@ -201,4 +203,30 @@ while True:
             print(i)
         
     elif(choice == 10):
+        
+
+        print("subject wise average mark")
+
+        subname=input("enter a subject name:-")
+
+        if(subname=='physics'):
+
+            sql="SELECT avg(`physicsmark`)  FROM `marks` "        
+
+        elif(subname=='Chemistry'):
+
+            sql="SELECT avg(`chemistrymark`)  FROM `marks` "
+
+        elif(subname=='Maths'):
+
+            sql="SELECT avg(`mathsmark`)  FROM `marks` "    
+
+           
+
+        mycursor.execute(sql)
+
+        result=mycursor.fetchall()
+
+        print(result)  
+    elif(choice == 11):
         break
