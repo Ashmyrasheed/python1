@@ -18,8 +18,10 @@ while True:
     print("4 update the students")    
 
     print("5 delete a students")
+    
+    print("6 insert marks")
 
-    print("6 exit")
+    print("7 exit")
 
    
 
@@ -87,4 +89,39 @@ while True:
 
     elif(choice==6):
 
+        print("insert marks")
+
+        admo=input("enter the student admission number")
+
+        sql='SELECT `id` FROM `students` WHERE `admno`='+admo
+
+        mycursor.execute(sql)
+
+        result = mycursor.fetchall()
+
+        id=0
+
+        for i in result:
+
+            id=str(i[0])
+
+        print("Student id:",id)
+
+        physicsmark=input("enter the physics marks")
+
+        chemistrymark=input("enter the chemistry marks")
+
+        mathsmark=input("enter the maths marks")
+
+        sql='INSERT INTO `marks`(`studentid`,`physicsmark`,`chemistrymark`,`mathsmark`) VALUES (%s,%s,%s,%s)'
+
+        data=(id,physicsmark,chemistrymark,mathsmark)
+
+        mycursor.execute(sql ,data)
+
+        mydb.commit()
+
+        print("marks data inserted suceesfully")
+        
+    elif(choice == 10):
         break
