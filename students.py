@@ -22,8 +22,11 @@ while True:
     print("6 insert marks")
     
     print("7 view all mark")
+    
+    print("8 Displays the individual marks ")
+    
 
-    print("8 exit")
+    print("9 exit")
 
    
 
@@ -143,7 +146,7 @@ while True:
 
         print('Displays the individual marks ')
 
-        adm0 = input('enter the admi number u need : ')
+        admo = input('enter the admi number u need : ')
 
         sql = 'SELECT `id` FROM `students` WHERE `admno`=' +admo
 
