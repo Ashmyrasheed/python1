@@ -22,8 +22,11 @@ while True:
     print("6 insert marks")
     
     print("7 view all mark")
+    
+    print("8 Displays the individual marks ")
+    
 
-    print("8 exit")
+    print("9 exit")
 
    
 
@@ -134,6 +137,36 @@ while True:
         mycursor.execute(sql)
 
         result =mycursor.fetchall()
+
+        for i in result:
+
+            print(i)
+            
+    elif(choice==8):
+
+        print('Displays the individual marks ')
+
+        admo = input('enter the admi number u need : ')
+
+        sql = 'SELECT `id` FROM `students` WHERE `admno`=' +admo
+
+        mycursor.execute(sql)
+
+        result = mycursor.fetchall()
+
+        id = 0
+
+        for i in result:
+
+            id = str(i[0])
+
+        print('Id of the student : ', id)
+
+        sql = 'SELECT * FROM `marks` WHERE `id`='+id
+
+        mycursor.execute(sql)
+
+        result = mycursor.fetchall()
 
         for i in result:
 
